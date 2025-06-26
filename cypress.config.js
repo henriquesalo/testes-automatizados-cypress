@@ -13,6 +13,6 @@ module.exports = defineConfig({
       return config;
     },
     specPattern: "cypress/e2e/**/*.feature",
-    baseUrl: "https://www.saucedemo.com/v1", //enquanto nao tenho o projeto finalizado na minha maquina
+    baseUrl: "http://localhost:4200/",
   },
 });

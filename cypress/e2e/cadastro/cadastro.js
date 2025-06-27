@@ -5,17 +5,22 @@ Given("que estou na página de registro", () => {
   cy.get('#botao-cadastar').click();
 });
 
-When("eu insiro o nome {string} e o email {string} ", (username, email) => {
-  cy.get('#field-nome').type(username);
-  cy.get('#email').type(email);
+When(
+  "eu insiro o usuário {string} e a senha {string} e o nome {string} e o documento {string} e a confirmacao {string}",
+  (email, senha, nome, documento, confirmaSenha) => {
+    cy.get('#email').type(email);
+    cy.get('#senha').type(senha);
+    cy.get('#field-nome').type(nome);
+    cy.get('#documento').type(documento);
+    cy.get('#confirmaSenha').type(confirmaSenha);
+  }
+);
+
+When("eu clico no botao cadastrar", () => {
+  cy.get('#button-cadastro').click();
 });
 
-When("eu insiro o documento {string} e a senha {string}", (documento, password, confirm) => {
-  cy.get('#documento').type(documento);
-  cy.get('#senha').type(password);
-  cy.get('#confirmaSenha').type(confirm);
+When("eu confirmo meu cadastro", () => {
+  cy.get('.swal2-confirm').click();
 });
 
-When("clico no botão de cadastrar", () => {
-  cy.get('.mat-mdc-card-actions').click();
-});
